@@ -1,0 +1,32 @@
+button {
+    width: 100%;
+    height: 52px;
+    margin-top: 6px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #3182f6;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    transition:
+        background-color 160ms ease,
+        transform 120ms ease,
+        box-shadow 160ms ease;
+}
+
+button:hover {
+    background-color: #1b64da;
+    box-shadow: 0 8px 18px rgba(49, 130, 246, 0.24);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(49, 130, 246, 0.28);
+    outline-offset: 3px;
+}
