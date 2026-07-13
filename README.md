@@ -1,16 +1,129 @@
-# React + Vite
+# 💰 SaveLog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **목표를 달성하며 올바른 소비 습관을 만드는 목표 중심 가계부 서비스**
 
-Currently, two official plugins are available:
+기존 가계부 서비스는 소비를 단순히 기록하는 데 그치는 경우가 많습니다.
+SaveLog는 **목표를 설정하고, 소비를 기록하며, 목표 달성 과정을 시각적으로 확인할 수 있는 서비스**를 만드는 것을 목표로 합니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 프로젝트 소개
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+SaveLog는 단순한 가계부가 아닌 **목표 기반 소비 관리 서비스**입니다.
 
-## Expanding the ESLint configuration
+사용자는 먼저 저축 또는 소비 목표를 설정하고, 이후 소비 내역을 기록하면서 자신의 소비 패턴과 목표 달성률을 함께 확인할 수 있습니다.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ 기술 스택
+
+### Front-end
+
+* React
+* Vite
+* React Router
+* CSS
+
+### Version Control
+
+* Git
+* GitHub
+
+---
+
+## 📌 주요 기능
+
+### 👤 회원
+
+* 회원가입
+* 로그인
+* 로그아웃
+
+### 🎯 목표 관리
+
+* 목표 생성
+* 목표 조회
+* 목표 수정
+* 목표 삭제
+
+### 💳 소비 관리
+
+* 소비 내역 등록
+* 소비 내역 수정
+* 소비 내역 삭제
+* 카테고리별 소비 관리
+
+### 📊 통계
+
+* 목표 달성률 확인
+* 월별 소비 내역
+* 카테고리별 소비 비율
+
+---
+
+## 📂 프로젝트 구조
+
+```text
+src
+├── assets
+├── components
+├── pages
+│   ├── Login
+│   ├── Signup
+│   ├── Home
+│   └── Goal
+├── router
+├── styles
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## 📅 개발 계획
+
+* [x] 프로젝트 기획
+* [x] 요구사항 명세서 작성
+* [x] 화면 설계
+* [ ] 로그인 UI
+* [ ] 회원가입 UI
+* [ ] 목표 생성 기능
+* [ ] 소비 기록 기능
+* [ ] 통계 화면
+* [ ] API 연동
+* [ ] 배포
+
+---
+
+## 🎯 프로젝트 목표
+
+* React를 활용한 SPA 개발 경험
+* 컴포넌트 기반 설계
+* 상태 관리 및 라우팅 이해
+* REST API 연동
+* Git/GitHub 협업 및 버전 관리 경험
+
+---
+
+## 📸 화면
+
+추후 UI 완성 후 이미지 또는 GIF를 추가할 예정입니다.
+
+---
+
+## 📖 Commit Convention
+
+```text
+feat: 새로운 기능 추가
+fix: 버그 수정
+style: UI 및 CSS 수정
+refactor: 코드 리팩토링
+docs: 문서 수정
+chore: 설정 및 기타 작업
+```
+
+---
+
+## 👨‍💻 개발자
+
+**김민홍**

@@ -1,4 +1,5 @@
 .form_wrap {
+    position: relative;
     width: min(100%, 380px);
     display: flex;
     flex-direction: column;
@@ -99,4 +100,16 @@
     .title {
         font-size: 28px;
     }
+}
+
+
+.error {
+  margin: -6px 0 14px;
+  padding: 10px 12px;
+  background: #fff1f0;
+  border: 1px solid #ffccc7;
+  color: #cf1322;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
 }

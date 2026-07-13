@@ -1,7 +1,8 @@
 import "./button.css";
-const Button = ({text}) => {
+const Button = ({text, type}) => {
+
   return (
-   <button>{text}</button>
+   <button type={type} >{text}</button>
   );
 };
 
