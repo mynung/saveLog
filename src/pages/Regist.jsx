@@ -1,7 +1,9 @@
+import Form from "../components/Form";
+
 const Regist = () => {
   return (
     <div>
-      <h1>Regist Page</h1>
+      <Form mode={"regist"} />
     </div>
   );
 };

@@ -1,6 +1,13 @@
 export const initialState = {
   isLoggedIn: false,
   user: null,
+  users: [
+    {
+      email: "alsghd72@gmail.com",
+      name: "김민홍",
+      password: "1937",
+    },
+  ],
   loading: false,
 };
 
@@ -23,7 +30,14 @@ export const authReducer = (state, action) => {
     case "UPDATE_USER":
       return {
         ...state,
-        user: { ...action.payload, ...state.user },
+        user: { ...state.user, ...action.payload },
+        loading: false,
+      };
+    case "REGISTER":
+      return {
+        ...state,
+        isLoggedIn: false,
+        users: [...state.users, action.payload],
         loading: false,
       };
     default:

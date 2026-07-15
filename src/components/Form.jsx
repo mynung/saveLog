@@ -5,10 +5,15 @@ import { useContext, useState, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Form = () => {
-  const { dispatch } = useContext(AuthContext);
+const Form = ({ mode }) => {
+  const isRegist = mode === "regist";
+  const { state ,dispatch } = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
+
   const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -18,11 +23,45 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === "alsghd72@gmail.com" && password === "1937") {
+    //회원가입 로직
+    if (isRegist) {
+      
+      if (!name || !email || !password || !confirmPassword) {
+        setError("모든 항목을 입력해주세요.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        setError("비밀번호가 일치하지 않습니다.");
+        return;
+      }
+
+      if (state.users.find((user) => user.email === email)) {
+        setError("이미 존재하는 이메일입니다.");
+        return;
+      }
+
+      dispatch({
+        type: "REGISTER",
+        payload: { email, name , password },
+      });
+
+      alert("회원가입 성공");
+      navigate("/");
+      return;
+    }
+
+    //login 로직
+
+    const foundUser = state.users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (foundUser) {
       setError("");
       dispatch({
         type: "LOGIN",
-        payload: { id: 1, name: "민홍", email: email },
+        payload: foundUser,
       });
       console.log("로그인 성공");
       navigate("/home");
@@ -49,6 +88,18 @@ const Form = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
+        {isRegist && (
+          <>
+            <p className="input_dec">이름</p>
+            <input
+              type="text"
+              placeholder="이름"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </>
+        )}
+
         <p className="input_dec">비밀번호</p>
         <input
           ref={passwordRef}
@@ -58,11 +109,31 @@ const Form = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
+        {isRegist && (
+          <>
+            <p className="input_dec">비밀번호 확인</p>
+            <input
+              type="password"
+              placeholder="비밀번호 확인"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </>
+        )}
+
         {error && <p className="error">{error}</p>}
 
-        <Button text={"로그인"} type={"submit"} />
+        <Button text={isRegist ? "회원가입" : "로그인"} type={"submit"} />
         <p className="signup-text">
-          아직 회원이 아니신가요? <Link to="/regist">회원가입</Link>
+          {isRegist ? (
+            <>
+              이미 계정이 있으신가요? <Link to="/">로그인</Link>
+            </>
+          ) : (
+            <>
+              아직 회원이 아니신가요? <Link to="/regist">회원가입</Link>
+            </>
+          )}
         </p>
       </form>
     </div>
