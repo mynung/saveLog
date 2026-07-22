@@ -4,11 +4,11 @@ import Login from "./pages/Login";
 import Regist from "./pages/Regist";
 import Home from "./pages/Home";
 import AuthProvider from "./context/AuthContext";
-import ExpenseProvider from "./context/ExpenseContext";
+import TransactionProvider from "./context/TransactionContext";
 
 function App() {
   return (
-    <ExpenseProvider>
+    <TransactionProvider>
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -17,7 +17,7 @@ function App() {
           <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
       </AuthProvider>
-    </ExpenseProvider>
+    </TransactionProvider>
   );
 }
 
